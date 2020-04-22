@@ -31,7 +31,7 @@ const Import: React.FC = () => {
     try {
       await api.post('/transactions/import', data);
     } catch (err) {
-      console.log(err.response.error);
+      console.log(err.response.error); //eslint-disable-line
     }
     history.goBack();
   }
@@ -40,7 +40,7 @@ const Import: React.FC = () => {
     const newFiles = files.map(file => ({
       file,
       name: file.name,
-      readableSize: file.size.toString(),
+      readableSize: filesize(file.size),
     }));
     setUploadedFiles([...uploadedFiles, ...newFiles]);
   }
