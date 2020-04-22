@@ -27,7 +27,6 @@ const Import: React.FC = () => {
     uploadedFiles.forEach(uploadedFile =>
       data.append('file', uploadedFile.file),
     );
-    data.forEach(dat => console.log(dat));
 
     try {
       await api.post('/transactions/import', data);
